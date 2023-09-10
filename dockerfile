@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM nginx:latest
 
+COPY html /usr/share/nginx/html
 
-ENTRYPOINT ["echo", "Hello"]
-
-CMD ["World"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["nginx" "-g" "daemon off;"]
