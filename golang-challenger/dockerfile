@@ -1,0 +1,14 @@
+FROM golang
+
+RUN apt-get update
+
+WORKDIR /go/src/app
+
+COPY . .
+
+RUN go mod init hello
+
+# RUN echo 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}' > hello.go
+
+ENTRYPOINT ["go", "run", "hello.go"]
+
